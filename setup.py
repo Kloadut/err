@@ -52,20 +52,6 @@ if PY2:
 else:
     deps += ['dnspython3', ]  # dnspython3 for SRV records
 
-# Extra dependencies for a development environment.
-# if 'develop' in sys.argv: <- we cannot do that as pip is doing that in 2 steps.
-# TODO(gbin): find another way to filter those out if we don't need them.
-
-deps += ['mock',
-         'nose',
-         'pep8',
-         # Order matters here, pytest must come last. See also:
-         #   https://github.com/gbin/err/pull/496
-         #   https://bitbucket.org/pypa/setuptools/issues/196/tests_require-pytest-pytest-cov-breaks
-         'pytest-xdist',
-         'pytest',
-         'PyOpenSSL']
-
 if not ON_WINDOWS:
     deps += ['daemonize']
 
